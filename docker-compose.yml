@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: teszt
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  php:
+    image: php:7.4-apache
+    depends_on:
+      - db
+    volumes:
+      - ./app:/var/www/html
+      - ./config:/var/www/config:ro
+      - ./config/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - 80:80
+    command: >
+      bash -c "docker-php-ext-install mysqli && docker-php-ext-enable mysqli && apache2-foreground"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 8080:80    
+  
+  node:
+    image: node:16
+    volumes:
+      - ./node:/app
+      - ./node/kepek:/app/public/kepek
+    working_dir: /app
+    command: sh -c "npm install && npm run start"
+    ports:
+      - "3000:3000"

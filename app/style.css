@@ -1,0 +1,953 @@
+html{
+	overflow-y:scroll;
+}
+
+body{
+	background: #222;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+	color: #FFFFFF;	
+}
+
+::placeholder {
+	text-align: center; 
+ }
+
+p{
+	font-size: 2em;
+	text-align: center;
+}
+
+
+/**********		Header		**********/
+
+.header{
+	background: #333;
+	vertical-align: middle;	
+}
+
+/****************************************/
+
+/**********		Logo		**********/
+
+.logo{  
+	text-align: center;	
+}
+
+.logo h1, .logo p{	
+	margin: 0 auto;
+	padding: 0;
+}
+
+.logo h1{	
+	letter-spacing: 0.5 rem;
+	color: #FF9933;
+	text-shadow: #222 1px 1px 2px;	
+	font-size: 50px;
+}
+
+.logo p{
+	padding-bottom: 0.5em;	
+	text-shadow: #222 1px 1px 2px;
+	font: normal 18px;
+	font-style: italic;
+	font-size: 1em;
+}
+
+/****************************************/
+
+/**********		Menu		**********/
+
+.current_page_item{
+	background: #413a1e;
+}
+
+.menu{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	align-content: center;  
+  	text-align: center;
+  	vertical-align: middle;
+  	background: #333;
+  	margin: 2.5em auto;
+	padding: 1em;
+	gap: 1em;
+}
+
+.menu a{
+	color: #FF9933;
+	text-shadow: #222 1px 1px 2px;
+	text-decoration: none;
+	padding: 0.5em;
+	font-size: 1.5em;
+	border-style: solid;
+ 	border-color: #FF9933;
+  	border-radius: 10em;	
+}
+
+.menu a:hover{
+background: #AF7817;
+}
+
+.menu button{
+	color: #FF9933;
+	background: #333;
+	text-shadow: #222 1px 1px 2px;
+	text-decoration: none;
+	padding: 0.5em;
+	font-size: 1.5em;
+	border-style: solid;
+ 	border-color: #FF9933;
+  	border-radius: 10em;	
+}
+
+/****************************************/
+
+/**********		Szűrés		**********/
+
+.szures{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.szures select, input{
+	
+	padding: 15px 10px;
+	margin: 10px;
+	border-radius: 4px
+}
+
+.szures button{	
+	background-color: #FF9933;
+	padding: 15px 32px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 1rem;
+}
+
+/****************************************/
+
+/**********		Estates		**********/
+
+.estates{
+	display: flex;
+	justify-content: center;	
+	flex-wrap: wrap;	  
+  	text-align: center;  	
+  	margin: 2rem;
+	background-color: #333;
+}
+
+.estates h1{	
+	text-shadow: #222 1px 1px 2px;
+	font-size: 2em;	
+	margin: 0;
+	font-weight: normal;
+}
+
+.estates h2{	
+	text-shadow: #222 1px 1px 2px;
+	font-size: 1em;	
+	margin: 0;
+	font-weight: normal;
+}
+
+.estates h3{	
+	text-shadow: #222 1px 1px 2px;
+	font-size: 0.75em;	
+	margin: 0;
+	font-weight: normal;
+}
+
+.detailBtns { cursor: pointer; }
+
+#more{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+
+#loadMore{
+	border-radius: 20px;
+	padding: 15px 50px;
+	font-size: 1.5em;
+	background-color:#FF9933;
+	text-shadow: #ce6f2f 1px 1px 2px;
+}
+
+/****************************************/
+
+/**********		renderEstates		**********/
+
+.renderEstate{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 1 0 30%;
+	flex-wrap: wrap;
+	background-color: #818080;
+	margin: 1em;
+	padding: 1rem;
+	font-size: 2rem;
+	color: #FFFFFF;
+	height: 300px;
+	max-width: 600px;	
+	cursor: pointer;
+	text-shadow: #222 1px 1px 2px;
+}
+
+.renderEstateHol{
+	padding-bottom: 1rem;
+}
+
+.renderEstateAdatok{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	min-width: 500px;	
+}
+
+.renderEstateImage{
+	width: 150px;
+  	height: 150px;
+	padding: 1rem;
+	background-position: center center;
+	border-radius: 1em;
+	background-color: #333;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.renderEstateAdat{	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 1em;
+}
+
+.renderEstateTipus{
+	font-size: 1.5rem;
+}
+
+.renderEstateAlapterulet, .renderEstateSzobaszam{
+	font-size: 1rem;
+}
+
+/****************************************/
+
+/**********		myEstates		**********/
+
+.myEstate{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: wrap;
+	flex: 1 0 30%;
+	background-color: #818080;
+	margin: 1em;
+	padding: 1rem;
+	font-size: 1rem;
+	color: #FFFFFF;
+	min-width: 500px;
+	max-width: 600px;
+}
+
+.myEstateImage{
+	width: 250px;
+  	height: 250px;
+	background-position: center center;
+	border-radius: 5em;
+	background-size: contain;
+	background-repeat: no-repeat;
+   }
+.myEstateAdat{	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1em;	
+   }
+
+.myEstateHol{
+	font-size: 1.5em;	
+}
+
+.myEstateAr{
+	font-size: 2em;	
+}
+
+.myEstate button{
+	padding: 10px 25px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 1rem;
+}
+.editBtn{	
+	background-color: #FF9933;		
+}
+.deleteBtn{	
+	background-color: #690404;
+}
+
+
+
+#estate{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;	
+  	margin: 2rem;
+	background-color: #333;
+}
+
+#estate h2{
+	font-style: normal;
+	text-shadow: #222 1px 1px 2px;
+	font-size: 2em;
+	line-height: normal;
+	margin: 0;
+}
+
+#estate h3{
+	font-style: normal;
+	text-shadow: #222 1px 1px 2px;
+	font-size: 1.5em;
+	line-height: normal;
+	margin: 0;
+}
+
+#estate p{
+	font-style: normal;
+	text-shadow: #222 1px 1px 2px;
+	font-size: 1rem;
+	line-height: normal;
+	margin: 0;
+}
+
+#estateAdat{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;	
+}
+#estateCim{
+	display: flex;
+	justify-content: left;
+	margin: 1em 0em 0em 1em;
+	padding: 10px;
+}
+#estateHol{
+	display: flex;
+	justify-content: center;
+	padding: 5px;
+}
+#estateAdatok{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	padding: 20px;
+}
+#estateAr{
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	text-align: center;
+	border-style: hidden solid hidden solid;	
+	padding: 1em 2em 1em 2em;
+}
+#estateAlapterulet{
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	text-align: center;
+	padding: 10px;
+}
+#estateSzobaszam{
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	text-align: center;
+	border-style: hidden solid hidden solid;
+	padding: 10px;
+}
+#estateKapcsTel{
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	text-align: center;
+	padding: 10px;
+}
+#estateKapcsEmail{
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	text-align: center;
+	border-style: hidden solid hidden solid;
+	padding: 10px;
+}
+#estateLeiras{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	margin: 1em 25% 1em 25%;
+	padding: 1em;
+	border-style: solid hidden hidden hidden;
+	/*background-color: #696969;*/
+}
+
+
+#kepek{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	align-content: center;  
+  	vertical-align: middle;
+  	margin: 2rem;
+	background-color: #333;
+}
+
+.kepMain{
+	display: flex;
+	width: 400px;
+	height: 400px;
+	background-position: center center;
+	border-radius: 5em;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: #222;
+	background-position: center;
+	margin: 1em 2em 1em 1em;
+	cursor: pointer;
+	border-radius: 1em;		
+}
+.kepSide{
+	display: flex;
+	flex-direction: column;
+	vertical-align: middle;
+	background-position: center center;
+	border-radius: 5em;
+	background-size: contain;
+	background-repeat: no-repeat;	
+	
+}
+.kep{	
+	width: 200px;
+	height: 200px;
+	background-position: center center;
+	border-radius: 5em;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin: 1em;
+	cursor: pointer;		
+}
+
+.noKepMain{
+	display: flex;
+	width: 400px;
+	height: 400px;
+	background-position: center center;
+	border-radius: 5em;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin: 1em;	
+}
+
+.noKep{	
+	width: 200px;
+	height: 200px;
+	background-position: center center;
+	border-radius: 5em;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin: 1em;		
+}
+
+/****************************************/
+
+/**********		Galéria		**********/
+
+.gallery-overlay {	
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); 
+	z-index: 9999; 
+  }
+  
+  .gallery-modal {
+	position: absolute;	
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	z-index: 10000; 
+	text-align: center; 
+  }
+
+  .gallery-modal img {
+	max-width: min(90vw, 100%);
+	max-height: min(90vh, 100%);
+	width: auto;
+	height: auto;
+}
+  
+  .gallery-close {
+	position: absolute;
+	width: 1em;	
+	font-size: 2em;
+	top: -20px;
+	right: -20px;
+	cursor: pointer;
+	color: #FF9933;
+	background-color: #696969;
+	opacity: 0.5;
+	border-radius: 1em;
+  }
+  
+  
+  .gallery-prev,
+  .gallery-next {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	height: 95%;
+	width: 1em;
+	transform: translateY(-50%);
+	color: #FF9933;
+	font-size: 2em;
+	opacity: 0.5;
+	cursor: pointer;
+	background-color: #302f2f;
+  }
+  .gallery-prev p,
+  .gallery-next p{
+	display: flex;
+	align-items: center;
+	
+  }
+  .gallery-close:hover,
+  .gallery-prev:hover,
+  .gallery-next:hover{
+	opacity: 1;
+  }
+  
+  .gallery-prev {
+	left: 10px;
+  }
+  
+  .gallery-next {
+	right: 10px;
+  }
+  .gallery-overlay img{
+	max-width: 90vw;
+	max-height: 90vh;
+  }
+
+/****************************************/
+
+/**********		Register-login		**********/
+
+.register-login{
+	display: flex;
+	justify-content: center;
+	margin-top: 10%;
+	margin-bottom: 20%;
+	color: #FF9933;
+	text-shadow: #222 1px 1px 2px;
+	font-size: 1.1em;
+}
+
+.reglog-form{	
+	background-color: #818080;
+	width: 400px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 10px
+}
+
+.reglog-form input[type=text]{
+	width: 150px;
+	padding: 15px 5px;
+	margin: 10px;
+	border-radius: 4px
+}
+.reglog-form input[type=email], input[type=password]{
+	width: 330px;
+	padding: 15px 10px;
+	margin: 10px;
+	border-radius: 4px
+}
+.reglog-form button{	
+	background-color: #FF9933;
+	padding: 15px 32px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 1rem;
+}
+
+.reglog-form h2, a{
+	color:#ff8533;
+	text-shadow: #222 1px 1px 2px;
+	text-align: center;
+}
+
+/****************************************/
+
+/**********		Feladás		**********/
+
+#feladas{
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	color: #FF9933;
+	text-shadow: #222 1px 1px 2px;
+	font-size: 1.1em;
+	align-content: space-evenly;
+}
+
+#felad-form{	
+	background-color: #818080;
+	width: 600px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 10px;
+	
+}
+#section1{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 500px;
+	margin-top: 10px;	
+}
+#felad-1{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 300px;
+	
+}
+
+#felad-2{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 300px;
+	
+}
+
+#felad-3{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 300px;
+}
+
+#section2{
+	display: flex;
+	margin: 10px 0px;	
+}
+
+#section3{
+	display: flex;
+	align-items: center;
+	margin: 10px 0px;	
+}
+
+#section3 h3{
+	color: #ffffff;
+	text-shadow: #222 1px 1px 2px;
+}
+
+
+#felad-form select {
+	width: 150px;
+	padding: 15px 10px;
+	margin: 10px;
+	border-radius: 4px	
+}
+#felad-form #ar {
+	width: 60px;
+	
+}
+
+#felad-form input{
+	width: 130px;
+	padding: 15px 5px;
+	margin: 10 5px;
+	border-radius: 4px
+}
+#felad-form .hazszam{
+	width: 70px;
+} 
+#felad-form .rovszam{
+	width: 115px;
+}
+
+#felad-form #kapcsemail{
+	width: 200px;
+}
+
+
+#felad-form button{	
+	background-color: #FF9933;
+	padding: 15px 32px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 1rem;
+}
+
+
+#kepfel{
+	width: 500px;
+  	height: 100px;
+  	background-color: #AF7817;
+	color: #fff;
+	display: flex;
+	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+	
+}
+#kepfel .file-upload {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+	width: 500px;
+	border: 1px dashed black;
+	cursor: pointer;
+	overflow: hidden;
+  }
+  
+#kepfel .file-upload p {
+	margin-bottom: 10px;
+	font-size: 1em;
+  }
+  
+#kepfel .file-upload input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+  }
+/**************          Módosít             **********************************************************************/
+
+#kepEdit{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	background: #333;
+	margin: 5% 5% 0% 5%;	
+}
+.kepeim{
+	display: flex;
+	flex-direction: column;	
+	justify-content: center;
+	margin: 1em;
+}
+.kepem{	
+	width: 150px;
+	height: 150px;
+	background-position: center center;
+	border-radius: 5em;
+	background-size: contain;
+	background-repeat: no-repeat;			
+}
+#kepEdit button{
+	padding: 10px 25px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 1rem;
+}
+.deletePic{
+	border-width: 2px;
+	border-color: #ff0000;
+	color: #ffffff;
+	background-color: #333;
+	text-shadow: #000000 1px 1px 2px;
+	cursor: pointer;	
+}
+.mainPic{
+	border-width: 2px;
+	border-color: #FF9933;
+	color: #ffffff;
+	background-color: #333;
+	text-shadow: #000000 1px 1px 2px;
+	cursor: pointer;
+}
+
+#kepAdd{
+	display: flex;
+	align-items: center;
+  	justify-content: center;
+  	flex-direction: column;
+  	
+	margin-top: 1%;
+}
+#kepAdd .file-upload {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+	width: 500px;
+	border: 1px dashed black;
+	cursor: pointer;
+	overflow: hidden;
+	background-color: #AF7817;
+  }
+  
+#kepAdd .file-upload p {
+	margin-bottom: 10px;
+	font-size: 1em;
+  }
+  
+#kepAdd .file-upload input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+  }
+
+#estateEdit{
+	display: flex;
+	justify-content: center;
+	margin-top: 1%;
+	margin-bottom: 5%;
+	text-shadow: #222 1px 1px 2px;
+	font-size: 1.1em;
+	align-content: space-evenly;
+}
+
+#edit-form{	
+	background-color: #818080;
+	width: 600px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 10px;
+	
+}
+#edit-form #section1{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 500px;
+	margin-top: 10px;	
+}
+#edit-1{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 300px;
+	
+}
+
+#edit-2{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 300px;
+	
+}
+
+#edit-3{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 300px;
+}
+
+#section2{
+	display: flex;
+	margin: 10px 0px;	
+}
+
+#edit-form select {
+	width: 150px;
+	padding: 15px 10px;
+	margin: 10px;
+	border-radius: 4px	
+}
+#edit-form #ar {
+	width: 80px;
+	
+}
+
+#edit-form input{
+	width: 130px;
+	padding: 15px 5px;
+	margin: 10 5px;
+	border-radius: 4px
+}
+#edit-form .hazszam{
+	width: 80px;
+} 
+#edit-form .rovszam{
+	width: 100px;
+}
+
+
+#edit-form button{	
+	background-color: #FF9933;
+	padding: 15px 32px;
+	margin: 10px;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 1rem;
+}
+
+/**********************************************************************/
+
+
+
+/* Footer */
+
+#footer {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-end;
+	background-color: #333;
+	text-shadow: #222 1px 1px 2px;
+}
+
+#footer p{
+	font-size: 1em;
+}
