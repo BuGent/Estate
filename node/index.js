@@ -82,66 +82,70 @@ app.post('/elado', express.json(),  (req, res) => {
   let utolso = req.body.utolso;
   utolso *= 12;
   
-  let sql = "SELECT * FROM Elado WHERE";
+  if(tipus != "" || telepules != "" || min != 0 || max != 0){
+    let sql = "SELECT * FROM Elado WHERE";
 
-  if(tipus!=""){
-    sql += " tipus='" + tipus + "'";
-  }
-  if(telepules!=""){
     if(tipus!=""){
-      sql += " AND varos='" + telepules + "'";
-    }    
-    else{
-      sql += " varos='" + telepules + "'";
+      sql += " tipus='" + tipus + "'";
     }
+    if(telepules!=""){
+      if(tipus!=""){
+        sql += " AND varos='" + telepules + "'";
+      }    
+      else{
+        sql += " varos='" + telepules + "'";
+      }
+    }
+
+    if(min != 0 || max != 0){
+      if(min<max){
+        if(telepules != "" || tipus != ""){
+          sql += "AND ar >= '" + min + "' AND ar <= '" + max + "'";
+        }
+        else{
+          sql += " ar >= '" + min + "' AND ar <= '" + max + "'";
+        }      
+      }
+      else if(min>max && max === 0){
+        if(telepules != "" || tipus != ""){
+          sql += "AND ar >= '" + min + "'";
+        }
+        else{
+          sql += " ar >= '" + min + "'";
+        } 
+      }
+      else if(min>max && max != 0){
+        if(telepules != "" || tipus != ""){
+          sql += "AND ar >= '" + max + "' AND ar <= '" + min + "'";
+        }
+        else{
+          sql += " ar >= '" + max + "' AND ar <= '" + min + "'";
+        }
+      }
+      else{
+        sql += "";
+      }
+    }
+    
+    
+    const connection = mysql.createConnection({
+      host: 'db',
+      user: 'user',
+      password: 'password',
+      database: 'teszt'
+    });
+    connection.connect();
+    sql +=" LIMIT 13 OFFSET " + utolso;
+
+    connection.query(sql, function (error, results, fields) {
+      if(error) throw error;
+      res.json(results);
+    });
+    connection.end();
   }
-
-  if(min != 0 || max != 0){
-    if(min<max){
-      if(telepules != "" || tipus != ""){
-        sql += "AND ar >= '" + min + "' AND ar <= '" + max + "'";
-      }
-      else{
-        sql += " ar >= '" + min + "' AND ar <= '" + max + "'";
-      }      
-    }
-    else if(min>max && max === 0){
-      if(telepules != "" || tipus != ""){
-        sql += "AND ar >= '" + min + "'";
-      }
-      else{
-        sql += " ar >= '" + min + "'";
-      } 
-    }
-    else if(min>max && max != 0){
-      if(telepules != "" || tipus != ""){
-        sql += "AND ar >= '" + max + "' AND ar <= '" + min + "'";
-      }
-      else{
-        sql += " ar >= '" + max + "' AND ar <= '" + min + "'";
-      }
-    }
-    else{
-      sql += "";
-    }
+  else{
+    res.json("");
   }
-  
-  
-  const connection = mysql.createConnection({
-    host: 'db',
-    user: 'user',
-    password: 'password',
-    database: 'teszt'
-  });
-  connection.connect();
-  sql +=" LIMIT 13 OFFSET " + utolso;
-
-  connection.query(sql, function (error, results, fields) {
-    if(error) throw error;
-    res.json(results);
-  });
-  connection.end();
-
 });
 
 /**********		Kiadó ingatlanok		**********/
@@ -196,66 +200,70 @@ app.post('/kiado', express.json(),  (req, res) => {
   let utolso = req.body.utolso;
   utolso *= 12;
   
-  let sql = "SELECT * FROM Kiado WHERE";
+  if(tipus != "" || telepules != "" || min != 0 || max != 0){
+    let sql = "SELECT * FROM Kiado WHERE";
 
-  if(tipus!=""){
-    sql += " tipus='" + tipus + "'";
-  }
-  if(telepules!=""){
     if(tipus!=""){
-      sql += " AND varos='" + telepules + "'";
-    }    
-    else{
-      sql += " varos='" + telepules + "'";
+      sql += " tipus='" + tipus + "'";
     }
+    if(telepules!=""){
+      if(tipus!=""){
+        sql += " AND varos='" + telepules + "'";
+      }    
+      else{
+        sql += " varos='" + telepules + "'";
+      }
+    }
+
+    if(min != 0 || max != 0){
+      if(min<max){
+        if(telepules != "" || tipus != ""){
+          sql += "AND ar >= '" + min + "' AND ar <= '" + max + "'";
+        }
+        else{
+          sql += " ar >= '" + min + "' AND ar <= '" + max + "'";
+        }      
+      }
+      else if(min>max && max === 0){
+        if(telepules != "" || tipus != ""){
+          sql += "AND ar >= '" + min + "'";
+        }
+        else{
+          sql += " ar >= '" + min + "'";
+        } 
+      }
+      else if(min>max && max != 0){
+        if(telepules != "" || tipus != ""){
+          sql += "AND ar >= '" + max + "' AND ar <= '" + min + "'";
+        }
+        else{
+          sql += " ar >= '" + max + "' AND ar <= '" + min + "'";
+        }
+      }
+      else{
+        sql += "";
+      }
+    }
+
+    const connection = mysql.createConnection({
+      host: 'db',
+      user: 'user',
+      password: 'password',
+      database: 'teszt'
+    });
+    connection.connect();
+
+    sql += " LIMIT 13 OFFSET " + utolso;
+    
+    connection.query(sql, function (error, results, fields) {
+      if(error) throw error;
+      res.json(results);
+    });
+    connection.end();
   }
-
-  if(min != 0 || max != 0){
-    if(min<max){
-      if(telepules != "" || tipus != ""){
-        sql += "AND ar >= '" + min + "' AND ar <= '" + max + "'";
-      }
-      else{
-        sql += " ar >= '" + min + "' AND ar <= '" + max + "'";
-      }      
-    }
-    else if(min>max && max === 0){
-      if(telepules != "" || tipus != ""){
-        sql += "AND ar >= '" + min + "'";
-      }
-      else{
-        sql += " ar >= '" + min + "'";
-      } 
-    }
-    else if(min>max && max != 0){
-      if(telepules != "" || tipus != ""){
-        sql += "AND ar >= '" + max + "' AND ar <= '" + min + "'";
-      }
-      else{
-        sql += " ar >= '" + max + "' AND ar <= '" + min + "'";
-      }
-    }
-    else{
-      sql += "";
-    }
+  else{
+    res.json("");
   }
-
-  const connection = mysql.createConnection({
-    host: 'db',
-    user: 'user',
-    password: 'password',
-    database: 'teszt'
-  });
-  connection.connect();
-
-  sql += " LIMIT 13 OFFSET " + utolso;
-  
-  connection.query(sql, function (error, results, fields) {
-    if(error) throw error;
-    res.json(results);
-  });
-  connection.end();
-
 });
 
 /**********		Hirdetés megjelenítése		**********/

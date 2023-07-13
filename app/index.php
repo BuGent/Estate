@@ -42,7 +42,7 @@ else{
 		</div>		
 			
 		<p>Legfrisebb hirdetéseink</p>
-		<div class="estates">
+		<div class="estates" id="mainEstates">
 			<div id="eladoEstate"><p>Eladó ingatlanok</p></div>
 			<div id="kiadoEstate"><p>Kiadó ingatlanok</p></div>				
 		</div>

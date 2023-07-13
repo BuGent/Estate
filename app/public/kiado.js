@@ -12,20 +12,24 @@ async function conn(){
     });           
     estateList = await estateList.json();
     
-    let hossz;
-    if (estateList.length == 13){
-        hossz = 12;
+    if(estateList.length>0){
+        let hossz;
+        if (estateList.length == 13){
+            hossz = 12;
+        }
+        else{
+            hossz = estateList.length
+        }
+        
+        document.getElementById("kiadoEstates").innerHTML =  renderEstates(estateList, hossz);
+        if (estateList.length == 13){
+            document.getElementById("more").innerHTML =  '<button type="button" id="loadMore">Több betöltése</button>';
+            loadMore();
+        }    
     }
     else{
-        hossz = estateList.length
+        document.getElementById("kiadoEstates").innerHTML = "<h1>Nincs megjeleníthető hirdetés.</h1>";
     }
-    
-    document.getElementById("kiadoEstates").innerHTML =  renderEstates(estateList, hossz);
-    if (estateList.length == 13){
-        document.getElementById("more").innerHTML =  '<button type="button" id="loadMore">Több betöltése</button>';
-        loadMore();
-    }    
-    
 }
 
 function loadMore() {     
